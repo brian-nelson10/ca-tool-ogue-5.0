@@ -21,7 +21,7 @@ function Tool(item) {
       </Link>
       <div>
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
-        <span>${price}</span>
+        <span></span>
       </div>
       <button>Add to Tool Bag.</button>
     </div>

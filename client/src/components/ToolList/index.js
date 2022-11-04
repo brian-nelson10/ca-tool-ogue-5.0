@@ -31,7 +31,6 @@ function ToolList({ currentCategory }) {
               _id={tool._id}
               image={tool.image}
               name={tool.name}
-              price={tool.price}
               quantity={tool.quantity}
             />
           ))}
