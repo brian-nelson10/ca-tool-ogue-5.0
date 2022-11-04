@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import ToolList from "../components/ToolList";
 import CategoryMenu from "../components/CategoryMenu";
 
 const Home = () => {
-  const [currentCategory, setCategory] = useState("");
-
-  return (
-    <div className="container">
-      <CategoryMenu setCategory={setCategory} />
-      <ToolList currentCategory={currentCategory} />
-    </div>
-  );
-};
+    return (
+      <div className="container">
+        <CategoryMenu />
+        <ToolList />
+      </div>
+    );
+  };
 
 export default Home;

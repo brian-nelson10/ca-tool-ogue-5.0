@@ -1,5 +1,6 @@
 {
   "name": "ca-tool-ogue-5.0",
+  "homepage": ".",
   "version": "1.0.0",
   "description": "Catoologue of Tools. See who has which tool.",
   "main": "server/server.js",

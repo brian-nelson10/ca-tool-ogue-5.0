@@ -15,12 +15,18 @@ const typeDefs = gql`
     category: Category
   }
 
+  type Saved {
+    _id: ID
+    savedDate: String
+    tools: [Tool]
+  }
+
   type User {
     _id: ID
     firstName: String
     lastName: String
     email: String
-   
+    saved: [Saved]
   }
 
   type Auth {
@@ -33,12 +39,12 @@ const typeDefs = gql`
     tools(category: ID, name: String): [Tool]
     tool(_id: ID!): Tool
     user: User
-    
+    saved(_id: ID!): Saved
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    
+    addSaved(tools: [ID]!): Saved
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateTool(_id: ID!, quantity: Int!): Tool
     login(email: String!, password: String!): Auth
@@ -47,16 +53,3 @@ const typeDefs = gql`
 
 module.exports = typeDefs;
 
-
-//may not need. just omit 
-// type Order {
-//     _id: ID
-//     purchaseDate: String
-//     products: [Product]
-//   }
-
-//  orders: [Order]
-
-// order(_id: ID!): Order
-
-// addToBag(products: [ID]!): Order

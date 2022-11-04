@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 
-function Tool(item) {
+function ToolItem(item) {
   const {
     image,
     name,
@@ -28,4 +28,4 @@ function Tool(item) {
   );
 }
 
-export default Tool;
+export default ToolItem;

@@ -8,7 +8,7 @@ import {
   
   export const reducer = (state, action) => {
     switch (action.type) {
-      // if action type value is the value of `UPDATE_TOOLS`, return a new state object with an updated products array
+      // if action type value is the value of `UPDATE_TOOLS`, return a new state object with an updated tools array
       case UPDATE_TOOLS:
         return {
           ...state,

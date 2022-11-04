@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -9,12 +9,13 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
-import Detail from './pages/Detail';
+// import Detail from './pages/Detail';
 //import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
-//import SavedHistory from './pages/SavedHistory';
+import { StoreProvider } from "./utils/GlobalState";
+//import Saved from './pages/Saved';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,15 +41,35 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            {/* <Route exact path="/savedHistory" component={SavedHistory} /> */}
-            <Route exact path="/tools/:id" component={Detail} />
-            {/* <Route component={NoMatch} /> */}
-          </Switch>
+          <StoreProvider>
+            <Nav />
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Home />} 
+              />
+              <Route 
+                path="/login" 
+                element={<Login />}
+              />
+              <Route 
+                path="/signup" 
+                element={<Signup />} 
+              />
+              {/* <Route 
+                path="/Saved" 
+                element={<Saved />} 
+              />
+              <Route 
+                path="/tools/:id" 
+                element={<Detail />}
+              />
+              <Route 
+                path="*" 
+                element={<NoMatch />}
+              /> */}
+            </Routes>
+          </StoreProvider>
         </div>
       </Router>
     </ApolloProvider>
